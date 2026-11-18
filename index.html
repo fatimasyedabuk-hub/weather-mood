@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Mood — The Web in Real Time</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div id="flash" aria-hidden="true"></div>
+
+  <main>
+    <header>
+      <h1>Weather Mood</h1>
+      <p class="tagline">Live weather turned into colour, motion and sound.</p>
+    </header>
+
+    <form id="search" autocomplete="off">
+      <input id="city" type="text" placeholder="Search a city…" aria-label="City name" />
+      <button type="submit">Go</button>
+      <button type="button" id="locate" title="Use my location">📍</button>
+    </form>
+
+    <div class="quick">
+      <button data-city="Toronto">Toronto</button>
+      <button data-city="Reykjavik">Reykjavik</button>
+      <button data-city="Mumbai">Mumbai</button>
+      <button data-city="Dubai">Dubai</button>
+      <button data-city="London">London</button>
+      <button data-city="Tokyo">Tokyo</button>
+    </div>
+
+    <section id="card" aria-live="polite">
+      <p id="status">Loading live weather…</p>
+      <div id="weather" hidden>
+        <h2 id="place"></h2>
+        <p id="local-time"></p>
+        <div class="big">
+          <span id="icon"></span>
+          <span id="temp"></span>
+        </div>
+        <p id="desc"></p>
+        <ul class="stats">
+          <li><span>Feels like</span><strong id="feels"></strong></li>
+          <li><span>Humidity</span><strong id="humidity"></strong></li>
+          <li><span>Wind</span><strong id="wind"></strong></li>
+          <li><span>Cloud cover</span><strong id="clouds"></strong></li>
+          <li><span>Precipitation</span><strong id="precip"></strong></li>
+        </ul>
+        <p id="mood" class="mood"></p>
+      </div>
+    </section>
+
+    <button id="sound" class="sound">🔈 Play the weather</button>
+    <p class="updated">Updated <span id="updated">—</span> · refreshes every 10 min</p>
+  </main>
+
+  <footer>
+    Data: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo API</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
